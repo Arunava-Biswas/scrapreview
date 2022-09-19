@@ -68,7 +68,7 @@ def data_search():
             t1 = time.time()
             print(f"Number of total links: {len(links)}")
             print(f"Link creation successful-- Time taken {t1 - start_time:.2f} seconds")
-            with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
                 executor.map(data.data_fetching, links)
 
             t2 = time.time()
