@@ -68,7 +68,7 @@ def data_search():
             t1 = time.time()
             print(f"Number of total links: {len(links)}")
             print(f"Link creation successful-- Time taken {t1 - start_time:.2f} seconds")
-            with concurrent.futures.ThreadPoolExecutor(max_workers=500) as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                 executor.map(data.data_fetching, links)
 
             t2 = time.time()
@@ -79,7 +79,6 @@ def data_search():
             df1 = pd.DataFrame(results)
             t3 = time.time()
             print(f"Data collected successfully-- Time taken {t3 - t2:.2f} seconds")
-            # print(df1)
             # To remove the id and page_no as these are not meaningful
             df1.drop(['_id'], axis=1, inplace=True)
             df1.reset_index(drop=True, inplace=True)
