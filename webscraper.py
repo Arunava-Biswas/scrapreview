@@ -125,6 +125,8 @@ class Data:
                     }
 
                     rec_insert(collection, d)
+                    msg = "record inserted"
+                    print(msg)
                 succ_insert(collection)
 
     # Function to get the data from the database
