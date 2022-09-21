@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+from flask import Response
 from database import connect, rec_insert, succ_insert, show_res, rec_del
 
 
@@ -125,8 +126,7 @@ class Data:
                     }
 
                     rec_insert(collection, d)
-                    msg = "record inserted"
-                    print(msg)
+                    return Response("{'a':'b'}", status=201, mimetype='application/json')
                 succ_insert(collection)
 
     # Function to get the data from the database
